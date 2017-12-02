@@ -15,21 +15,16 @@
             return digit - '0';
         }
 
-        internal static long SumRepeatingDigits(string number)
+        internal static long SumRepeatingDigits(string number, int step)
         {
             long sum = 0;
 
-            for (int i = 0; i < number.Length - 1; i++)
+            for (int i = 0; i < number.Length; i++)
             {
-                if (number[i] == number[i + 1])
+                if (number[i] == number[(i + step) % number.Length])
                 {
                     sum += ToInt(number[i]);        
                 }
-            }
-
-            if (number[number.Length - 1] == number[0])
-            {
-                sum += ToInt(number[0]);
             }
 
             return sum;
@@ -37,12 +32,7 @@
 
         internal static void Main()
         {
-            string puzzleInput = null;
-
-            using (var reader = new StreamReader("input.txt"))
-            {
-                puzzleInput = reader.ReadToEnd();
-            }
+            bool oneStep = true;
 
             while (true)
             {
@@ -53,12 +43,29 @@
                 {
                     break;
                 }
-                else if (input == "puzzle")
+                else if (input == "file")
                 {
-                    input = puzzleInput;
+                    string fileName = Console.ReadLine();
+
+                    using (var reader = new StreamReader(fileName))
+                    {
+                        input = reader.ReadToEnd();
+                    }
+                }
+                else if (input == "one")
+                {
+                    oneStep = true;
+                    continue;
+                }
+                else if (input == "half")
+                {
+                    oneStep = false;
+                    continue;
                 }
 
-                long sum = SumRepeatingDigits(input);
+                int step = oneStep ? 1 : input.Length / 2;
+
+                long sum = SumRepeatingDigits(input, step);
 
                 Console.WriteLine(sum + Environment.NewLine);
             }
