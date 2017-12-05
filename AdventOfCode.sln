@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.SpiralMemory", "03.Spira
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.HighEntropyPassphrases", "04.HighEntropyPassphrases\04.HighEntropyPassphrases.csproj", "{CA2AE77E-E7D5-4F5A-9229-42321A5B14AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.TwistyTrampolines", "05.TwistyTrampolines\05.TwistyTrampolines.csproj", "{2558E2C7-4A4F-48E6-8642-E7505B1825F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CA2AE77E-E7D5-4F5A-9229-42321A5B14AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA2AE77E-E7D5-4F5A-9229-42321A5B14AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA2AE77E-E7D5-4F5A-9229-42321A5B14AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2558E2C7-4A4F-48E6-8642-E7505B1825F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2558E2C7-4A4F-48E6-8642-E7505B1825F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2558E2C7-4A4F-48E6-8642-E7505B1825F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2558E2C7-4A4F-48E6-8642-E7505B1825F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
