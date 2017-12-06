@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.HighEntropyPassphrases",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.TwistyTrampolines", "05.TwistyTrampolines\05.TwistyTrampolines.csproj", "{2558E2C7-4A4F-48E6-8642-E7505B1825F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.MemoryReallocation", "06.MemoryReallocation\06.MemoryReallocation.csproj", "{6199A2CC-ED07-4E82-83B5-7758C55ECAC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2558E2C7-4A4F-48E6-8642-E7505B1825F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2558E2C7-4A4F-48E6-8642-E7505B1825F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2558E2C7-4A4F-48E6-8642-E7505B1825F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6199A2CC-ED07-4E82-83B5-7758C55ECAC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6199A2CC-ED07-4E82-83B5-7758C55ECAC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6199A2CC-ED07-4E82-83B5-7758C55ECAC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6199A2CC-ED07-4E82-83B5-7758C55ECAC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
