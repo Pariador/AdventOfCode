@@ -18,7 +18,7 @@
         {
             Result result = new Result();
 
-            bool skip = false;
+            bool ignore = false;
             bool inGarbage = false;
 
             int group = 0;
@@ -32,14 +32,14 @@
                 }
                 char @char = (char)data;
 
-                if (skip)
+                if (ignore)
                 {
-                    skip = false;
+                    ignore = false;
                     continue;
                 }
                 else if (@char == Symbols.Ignore)
                 {
-                    skip = true;
+                    ignore = true;
                 }
                 else if (inGarbage && @char != Symbols.CloseGarbage)
                 {
