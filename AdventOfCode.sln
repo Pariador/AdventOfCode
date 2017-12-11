@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.Registers", "08.Register
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.StreamProcessing", "09.StreamProcessing\09.StreamProcessing.csproj", "{AEDFA7A3-6416-4D13-8170-BE746E3E251B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10.KnotHash", "10.KnotHash\10.KnotHash.csproj", "{2D9E44DF-B52A-4BBE-ACE0-159FE2CA1EEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{AEDFA7A3-6416-4D13-8170-BE746E3E251B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEDFA7A3-6416-4D13-8170-BE746E3E251B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEDFA7A3-6416-4D13-8170-BE746E3E251B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D9E44DF-B52A-4BBE-ACE0-159FE2CA1EEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D9E44DF-B52A-4BBE-ACE0-159FE2CA1EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D9E44DF-B52A-4BBE-ACE0-159FE2CA1EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D9E44DF-B52A-4BBE-ACE0-159FE2CA1EEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
