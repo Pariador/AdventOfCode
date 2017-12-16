@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12.DigitalPlumber", "12.Dig
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13.PacketScanners", "13.PacketScanners\13.PacketScanners.csproj", "{3B504329-96F4-4D88-84E9-C8B84464D1E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14.DiskDefragmentation", "14.DiskDefragmentation\14.DiskDefragmentation.csproj", "{4B435A45-0E92-4ED7-8026-16E89386006E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{3B504329-96F4-4D88-84E9-C8B84464D1E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B504329-96F4-4D88-84E9-C8B84464D1E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B504329-96F4-4D88-84E9-C8B84464D1E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B435A45-0E92-4ED7-8026-16E89386006E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B435A45-0E92-4ED7-8026-16E89386006E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B435A45-0E92-4ED7-8026-16E89386006E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B435A45-0E92-4ED7-8026-16E89386006E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
