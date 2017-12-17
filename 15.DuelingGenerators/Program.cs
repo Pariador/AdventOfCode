@@ -25,7 +25,7 @@
 
         public static int CountShortEquals(Generator genA, Generator genB, int length = 5)
         {
-            int count = 0;
+            int count = 0;  
 
             for (int i = 0; i < length; i++)
             {
