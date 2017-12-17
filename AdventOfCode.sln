@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14.DiskDefragmentation", "1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15.DuelingGenerators", "15.DuelingGenerators\15.DuelingGenerators.csproj", "{DE2D6B1D-2A7F-40FC-9F82-98BDD6226AEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16.PermutationPromenade", "16.PermutationPromenade\16.PermutationPromenade.csproj", "{7C7C976F-E6E2-4FDD-9396-EF994B1AFC70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{DE2D6B1D-2A7F-40FC-9F82-98BDD6226AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE2D6B1D-2A7F-40FC-9F82-98BDD6226AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE2D6B1D-2A7F-40FC-9F82-98BDD6226AEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C7C976F-E6E2-4FDD-9396-EF994B1AFC70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C7C976F-E6E2-4FDD-9396-EF994B1AFC70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C7C976F-E6E2-4FDD-9396-EF994B1AFC70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C7C976F-E6E2-4FDD-9396-EF994B1AFC70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
