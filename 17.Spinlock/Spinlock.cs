@@ -1,32 +1,33 @@
 ﻿namespace Spinlock
 {
+    using System;
     using System.Linq;
     using System.Collections.Generic;
-    using System;
 
     public class Spinlock
     {
-        private List<int> buffer;
+        private LinkedList<int> buffer;
 
         public Spinlock(int step)
         {
-            this.buffer = new List<int>();
+            this.buffer = new LinkedList<int>();
 
             this.Step = step;
         }
 
         public int Step { get; private set; }
 
-        public int Position { get; private set; }
+        private LinkedListNode<int> Current { get; set; }
 
         public void Fill(int count, Action<int> report = null)
         {
+            int percent = count / 100;
+
             for (int i = 0; i < count; i++)
             {
-                if (report != null && i % 100000 == 0)
+                if (report != null && percent != 0 && (i % percent) == 0)
                 {
-
-                    report(i);
+                    report(i / percent);
                 }
 
                 this.Insert(i);
@@ -42,43 +43,43 @@
 
         public int GetValueAfter(int value)
         {
-            //var node = this.buffer.FindLast(value);
+            var node = this.buffer.FindLast(value);
 
-            //if (this.buffer.Last == node)
-            //{
-            //    return this.buffer.First.Value;
-            //}
-
-            //return node.Next.Value;
-
-            int index = this.buffer.LastIndexOf(value);
-
-            if (index < 0)
+            if (this.buffer.Last == node)
             {
-                return index;
+                return this.buffer.First.Value;
             }
 
-            index = (index + 1) % this.buffer.Count;
-
-            return this.buffer[index];
+            return node.Next.Value;
         }
 
         private void Insert(int value)
         {
             if (!this.buffer.Any())
             {
-                this.buffer.Add(value);
-                //this.buffer.AddFirst(value);
+                this.buffer.AddFirst(value);
+                this.Current = this.buffer.First;
                 return;
             }
 
-            this.Position = (this.Position + this.Step + 1) % this.buffer.Count;
+            this.Move(this.Step + 1);
 
-            //var node = this.buffer.NodeAt(this.Position);
+            this.buffer.AddAfter(this.Current, value);
+        }
 
-            //this.buffer.AddBefore(node, value);
-
-            this.buffer.Insert(this.Position, value);
+        private void Move(int length)
+        {
+            for (int i = 0; i < length; i++)
+            {
+                if (this.Current.Next == null)
+                {
+                    this.Current = this.buffer.First;
+                }
+                else
+                {
+                    this.Current = this.Current.Next;
+                }
+            }
         }
     }
 }

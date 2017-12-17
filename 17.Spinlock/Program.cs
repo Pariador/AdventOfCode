@@ -9,19 +9,18 @@
         {
             Spinlock spinlock = new Spinlock(363);
 
-            int count = 2018;
+            Run(spinlock, count: 2018, target: 2017);
+            Run(spinlock, count: 50000001, target: 0);
+        }
 
-            spinlock.Fill(count);
-            int first = spinlock.GetValueAfter(2017);
-            Console.WriteLine($"First: {first}");
-
+        public static void Run(Spinlock spinlock, int count, int target)
+        {
             spinlock.Clear();
 
-            count = 50000001;
-
-            spinlock.Fill(count, number => Console.WriteLine(Utils.ToPercentage(number, count)));
-            int second = spinlock.GetValueAfter(0);
-            Console.WriteLine($"Second: {second}");
+            Console.WriteLine($"Filling buffer with {count} values...");
+            spinlock.Fill(count, percentage => Console.WriteLine($"{percentage}%"));
+            int result = spinlock.GetValueAfter(target);
+            Console.WriteLine($"Number after {target}: {result}\n--------------------------------\n");
         }
     }
 }
