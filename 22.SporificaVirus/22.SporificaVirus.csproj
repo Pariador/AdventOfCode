@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9BCE476C-6F3D-446B-91D4-A32BE1446E58}</ProjectGuid>
+    <ProjectGuid>{B9001958-44C2-4782-9C81-BF60D4E127A8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FractralArt</RootNamespace>
-    <AssemblyName>FractralArt</AssemblyName>
+    <RootNamespace>SporificaVirus</RootNamespace>
+    <AssemblyName>SporificaVirus</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,10 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MatrixComparer.cs" />
+    <Compile Include="Direction.cs" />
+    <Compile Include="EvolvedVirus.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tranformer.cs" />
+    <Compile Include="Virus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

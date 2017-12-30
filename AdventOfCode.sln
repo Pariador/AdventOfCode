@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20.ParticleSwarm", "20.Part
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21.FractralArt", "21.FractralArt\21.FractralArt.csproj", "{9BCE476C-6F3D-446B-91D4-A32BE1446E58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "22.SporificaVirus", "22.SporificaVirus\22.SporificaVirus.csproj", "{B9001958-44C2-4782-9C81-BF60D4E127A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{9BCE476C-6F3D-446B-91D4-A32BE1446E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BCE476C-6F3D-446B-91D4-A32BE1446E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BCE476C-6F3D-446B-91D4-A32BE1446E58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9001958-44C2-4782-9C81-BF60D4E127A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9001958-44C2-4782-9C81-BF60D4E127A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9001958-44C2-4782-9C81-BF60D4E127A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9001958-44C2-4782-9C81-BF60D4E127A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
