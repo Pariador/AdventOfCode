@@ -1,0 +1,51 @@
+﻿------Description
+The program counts composite numbers(h) from a(106500) to b(123500) in multiples of 17 - outermost loop.
+(f) - IsPrimeFlag
+It checks if the multiple is prime by multipliing every number from 2 to the multiple with 2 loops, (e) and (d).
+-----------------
+
+set a 1
+set b 65 // 106500
+set c 65 // 123500
+jnz a 2
+jnz 1 5
+
+mul b 100
+add b 100000
+set c b
+add c 17000
+//b = 106500 c = 123500
+
+set f 1	
+set d 2
+	set e 2
+
+		set g d //2
+
+		mul g e // 4
+
+		sub g b
+		jnz g 2
+
+		set f 0
+
+		add e 1
+
+		set g e
+		sub g b
+		jnz g -8
+
+	add d 1
+	set g d
+	sub g b
+	jnz g -13
+
+jnz f 2
+	add h 1
+
+set g b
+sub g c
+jnz g 2
+jnz 1 3 //halt
+add b 17
+jnz 1 -23

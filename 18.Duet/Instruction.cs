@@ -18,6 +18,9 @@
                 case "add":
                     type = InstructionType.Add;
                     break;
+                case "sub":
+                    type = InstructionType.Subtract;
+                    break;
                 case "mul":
                     type = InstructionType.Multiply;
                     break;
@@ -25,7 +28,10 @@
                     type = InstructionType.Modulo;
                     break;
                 case "jgz":
-                    type = InstructionType.ConditionalJump;
+                    type = InstructionType.JumpIfPositive;
+                    break;
+                case "jnz":
+                    type = InstructionType.JumpIfNotZero;
                     break;
                 case "snd":
                     if (sendAndRecieve)

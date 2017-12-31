@@ -51,6 +51,8 @@
 
         public long MessagesSent { get; private set; }
 
+        public long MultiplicationCount { get; private set; }
+
         public bool Waiting { get; set; }
 
         public bool Halt { get; set; }
@@ -84,14 +86,20 @@
                 case InstructionType.Add:
                     this.Add(instruction.Arguments[0][0], this.Eval(instruction.Arguments[1]));
                     break;
+                case InstructionType.Subtract:
+                    this.Subtract(instruction.Arguments[0][0], this.Eval(instruction.Arguments[1]));
+                    break;
                 case InstructionType.Multiply:
                     this.Multiply(instruction.Arguments[0][0], this.Eval(instruction.Arguments[1]));
                     break;
                 case InstructionType.Modulo:
                     this.Modulo(instruction.Arguments[0][0], this.Eval(instruction.Arguments[1]));
                     break;
-                case InstructionType.ConditionalJump:
-                    jump = this.ConditionalJump(this.Eval(instruction.Arguments[0]), this.Eval(instruction.Arguments[1]));
+                case InstructionType.JumpIfPositive:
+                    jump = this.JumpIfPositive(this.Eval(instruction.Arguments[0]), this.Eval(instruction.Arguments[1]));
+                    break;
+                case InstructionType.JumpIfNotZero:
+                    jump = this.JumpIfNotZero(this.Eval(instruction.Arguments[0]), this.Eval(instruction.Arguments[1]));
                     break;
                 case InstructionType.Play:
                     this.Play(this.Eval(instruction.Arguments[0]));
@@ -108,12 +116,17 @@
                     {
                         jump = 0;
                     }
-                break;
+                    break;
                 default:
                     throw new ArgumentException("Unknown Instruction type!");
             }
 
             this.CurrentInstruction += jump;
+        }
+
+        public long Get(char register)
+        {
+            return this.registers[register];
         }
 
         private void Set(char register, long value)
@@ -126,9 +139,16 @@
             this.registers[register] += value;
         }
 
+        private void Subtract(char register, long value)
+        {
+            this.registers[register] -= value;
+        }
+
         private void Multiply(char register, long value)
         {
             this.registers[register] *= value;
+
+            this.MultiplicationCount++;
         }
 
         private void Modulo(char register, long value)
@@ -136,9 +156,19 @@
             this.registers[register] %= value;
         }
 
-        private long ConditionalJump(long value, long offset)
+        private long JumpIfPositive(long value, long offset)
         {
             if (value > 0)
+            {
+                return offset;
+            }
+
+            return Computer.StandartJump;
+        }
+
+        private long JumpIfNotZero(long value, long offset)
+        {
+            if (value != 0)
             {
                 return offset;
             }
@@ -201,9 +231,12 @@
         public void Reset()
         {
             this.CurrentInstruction = 0;
-            this.Halt = false;
             this.messages = new Queue<long>();
             this.MessagesSent = 0;
+            this.MultiplicationCount = 0;
+            this.FirstRecoveredSound = null;
+            this.LastPlayedSound = 0;
+            this.Halt = false;
             this.Waiting = false;
 
             this.registers = new Dictionary<char, long>();

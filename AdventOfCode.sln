@@ -37,7 +37,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16.PermutationPromenade", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17.Spinlock", "17.Spinlock\17.Spinlock.csproj", "{D05C6B4A-EDF8-42E6-A961-74E39201DD5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18.Duet", "18.Duet\18.Duet.csproj", "{2E81DFD9-7BCD-4D14-B4D1-937E4DAB000A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18+23.Duet+CoprocessorConflagration", "18.Duet\18+23.Duet+CoprocessorConflagration.csproj", "{2E81DFD9-7BCD-4D14-B4D1-937E4DAB000A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "19.SeriesOfTubes", "19.SeriesOfTubes\19.SeriesOfTubes.csproj", "{A239C3AE-390C-4321-98FB-2ABDEEA3403A}"
 EndProject
