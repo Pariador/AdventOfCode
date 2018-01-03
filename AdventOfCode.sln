@@ -47,7 +47,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21.FractralArt", "21.Fractr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "22.SporificaVirus", "22.SporificaVirus\22.SporificaVirus.csproj", "{B9001958-44C2-4782-9C81-BF60D4E127A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23.ElectoromagneticMoat", "23.ElectoromagneticMoat\23.ElectoromagneticMoat.csproj", "{FA6DBF63-C3AD-462B-8D07-76A21F437227}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "24.ElectoromagneticMoat", "24.ElectoromagneticMoat\24.ElectoromagneticMoat.csproj", "{FA6DBF63-C3AD-462B-8D07-76A21F437227}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
