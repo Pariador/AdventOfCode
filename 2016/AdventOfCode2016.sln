@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.BathroomSecurity", "02.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Triangles", "03.Triangles\03.Triangles.csproj", "{E1CE9843-7723-462D-8071-97840B3CC9A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.Obscurity", "04.Obscurity\04.Obscurity.csproj", "{8DDB4A5D-038A-4E47-A188-56F928CF8FAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.SignalsAndNoise", "06.SignalsAndNoise\06.SignalsAndNoise.csproj", "{EEECD710-C8BB-41FF-90A7-E350D5A2C658}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{E1CE9843-7723-462D-8071-97840B3CC9A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1CE9843-7723-462D-8071-97840B3CC9A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1CE9843-7723-462D-8071-97840B3CC9A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DDB4A5D-038A-4E47-A188-56F928CF8FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DDB4A5D-038A-4E47-A188-56F928CF8FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DDB4A5D-038A-4E47-A188-56F928CF8FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DDB4A5D-038A-4E47-A188-56F928CF8FAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEECD710-C8BB-41FF-90A7-E350D5A2C658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEECD710-C8BB-41FF-90A7-E350D5A2C658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEECD710-C8BB-41FF-90A7-E350D5A2C658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEECD710-C8BB-41FF-90A7-E350D5A2C658}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
