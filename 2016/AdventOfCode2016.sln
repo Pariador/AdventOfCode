@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.Obscurity", "04.Obscurit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.SignalsAndNoise", "06.SignalsAndNoise\06.SignalsAndNoise.csproj", "{EEECD710-C8BB-41FF-90A7-E350D5A2C658}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.InternetProtocol", "07.InternetProtocol\07.InternetProtocol.csproj", "{5E16D1C4-7AA7-47B9-9F71-AD825DC18EE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{EEECD710-C8BB-41FF-90A7-E350D5A2C658}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEECD710-C8BB-41FF-90A7-E350D5A2C658}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEECD710-C8BB-41FF-90A7-E350D5A2C658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E16D1C4-7AA7-47B9-9F71-AD825DC18EE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E16D1C4-7AA7-47B9-9F71-AD825DC18EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E16D1C4-7AA7-47B9-9F71-AD825DC18EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E16D1C4-7AA7-47B9-9F71-AD825DC18EE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
