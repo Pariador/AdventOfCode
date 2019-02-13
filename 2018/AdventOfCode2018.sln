@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.ChronalCalibration", "01
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.InventoryManagementSystem", "02.InventoryManagementSystem\02.InventoryManagementSystem.csproj", "{E92E3533-D031-463F-8BE1-B2E842CC8EC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.NoMatterHowYouSliceIt", "03.NoMatterHowYouSliceIt\03.NoMatterHowYouSliceIt.csproj", "{31FF001D-4F51-416F-9ABF-9F6C13D9825E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E92E3533-D031-463F-8BE1-B2E842CC8EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E92E3533-D031-463F-8BE1-B2E842CC8EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E92E3533-D031-463F-8BE1-B2E842CC8EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31FF001D-4F51-416F-9ABF-9F6C13D9825E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31FF001D-4F51-416F-9ABF-9F6C13D9825E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31FF001D-4F51-416F-9ABF-9F6C13D9825E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31FF001D-4F51-416F-9ABF-9F6C13D9825E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
