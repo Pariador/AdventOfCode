@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.InventoryManagementSyste
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.NoMatterHowYouSliceIt", "03.NoMatterHowYouSliceIt\03.NoMatterHowYouSliceIt.csproj", "{31FF001D-4F51-416F-9ABF-9F6C13D9825E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.ReposeRecord", "04.ReposeRecord\04.ReposeRecord.csproj", "{8CD7E711-8243-4CCD-AD3C-38214AAFD303}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{31FF001D-4F51-416F-9ABF-9F6C13D9825E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31FF001D-4F51-416F-9ABF-9F6C13D9825E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31FF001D-4F51-416F-9ABF-9F6C13D9825E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CD7E711-8243-4CCD-AD3C-38214AAFD303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CD7E711-8243-4CCD-AD3C-38214AAFD303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CD7E711-8243-4CCD-AD3C-38214AAFD303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CD7E711-8243-4CCD-AD3C-38214AAFD303}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
