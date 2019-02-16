@@ -7,33 +7,57 @@
 
     static class Program
     {
-        const string Sep = "-----------------------";
-
         static void Main()
         {
             Event[] events = File.ReadAllLines("input.txt")
                 .Select(log => Event.Parse(log))
-                .OrderBy(@event => @event.Time)
+                .OrderBy(@event => @event.DateTime)
                 .ToArray();
 
-            Session[] sessions = GetSessions(events);
+            Session[] sessions = Session.GetSessions(events);
 
-            var guards = ToGuards(sessions);
+            var guards = Guard.ToGuards(sessions);
 
             Guard sleepiestGuard = FindSleepiestGuard(guards);
             int sleepiesMinute = FindSleepiestMinute(sleepiestGuard, out int sleepCount);
+            int mostSleptMinute = FindMostSleptMinute(guards, out int guardId);
 
-            var gg = guards.Select(guard =>
+            Console.WriteLine($"Part 1: {sleepiestGuard.Id * sleepiesMinute}");
+            Console.WriteLine($"Part 2: {mostSleptMinute * guardId}");
+        }
+
+        static TimeSpan GetSleepingTime(Guard guard)
+        {
+            TimeSpan sleepingTime = new TimeSpan();
+
+            foreach (var session in guard.Sessions)
             {
-                int minute = FindSleepiestMinute(guard, out int count);
-                return new { GuardId = guard.Id, Minute = minute, SleepCount = count };
-            }).OrderByDescending(guard => guard.SleepCount)
-            .First();
+                foreach (var span in session.SleepSpans)
+                {
+                    sleepingTime += span.Stop - span.Start;
+                }
+            }
 
-            Console.WriteLine(sleepiestGuard.Id);
-            Console.WriteLine(sleepiesMinute);
-            Console.WriteLine(sleepiestGuard.Id * sleepiesMinute);
-            Console.WriteLine(gg.GuardId * gg.Minute);
+            return sleepingTime;
+        }
+
+        static Guard FindSleepiestGuard(Guard[] guards)
+        {
+            Guard guard = guards[0];
+            TimeSpan max = GetSleepingTime(guards[0]);
+
+            for (int i = 1; i < guards.Length; i++)
+            {
+                TimeSpan sleepingTime = GetSleepingTime(guards[i]);
+
+                if (sleepingTime > max)
+                {
+                    guard = guards[i];
+                    max = sleepingTime;
+                }
+            }
+
+            return guard;
         }
 
         static int FindSleepiestMinute(Guard guard, out int sleepCount)
@@ -64,151 +88,24 @@
             return max;
         }
 
-        static Guard FindSleepiestGuard(Guard[] guards)
+        static int FindMostSleptMinute(Guard[] guards, out int guardId)
         {
-            Guard guard = guards[0];
-            TimeSpan max = GetSleepingTime(guards[0]);
+            int mostSleptMinute = FindSleepiestMinute(guards[0], out int maxSleepCount);
+            guardId = guards[0].Id;
 
             for (int i = 1; i < guards.Length; i++)
             {
-                TimeSpan sleepintTime = GetSleepingTime(guards[i]);
+                int minute = FindSleepiestMinute(guards[i], out int sleepCount);
 
-                if (sleepintTime > max)
+                if (sleepCount > maxSleepCount)
                 {
-                    guard = guards[i];
-                    max = sleepintTime;
+                    maxSleepCount = sleepCount;
+                    mostSleptMinute = minute;
+                    guardId = guards[i].Id;
                 }
             }
 
-            return guard;
+            return mostSleptMinute;
         }
-
-        static TimeSpan GetSleepingTime(Guard guard)
-        {
-            TimeSpan sleepingTime = new TimeSpan();
-
-            foreach (var session in guard.Sessions)
-            {
-                foreach (var span in session.SleepSpans)
-                {
-                    sleepingTime += span.Stop - span.Start;
-                }
-            }
-
-            return sleepingTime;
-        }
-
-        static Dictionary<Event, Event[]> GroupByStart(Event[] events)
-        {
-            var groups = new Dictionary<Event, Event[]>();
-
-            Event start = events[0];
-            List<Event> group = new List<Event>();
-
-            for (int i = 1; i < events.Length; i++)
-            {
-                if (events[i].Type == EventType.Start)
-                {
-                    groups[start] = group.ToArray();
-
-                    start = events[i];
-                    group.Clear();
-                }
-                else
-                {
-                    group.Add(events[i]);
-                }
-
-            }
-
-            groups[start] = group.ToArray();
-
-            return groups;
-        }
-
-        static Session[] GetSessions(Event[] events)
-        {
-            var sessions = new List<Session>();
-
-            var groups = GroupByStart(events);
-
-            foreach (var group in groups)
-            {
-                Event start = group.Key;
-                Event[] times = group.Value;
-
-                Session session = new Session(start.GuardId, start.Time.Date);
-
-                for (int i = 0; i < times.Length; i += 2)
-                {
-                    SleepSpan sleepSpan = new SleepSpan(times[i].Time, times[i + 1].Time);
-
-                    session.SleepSpans.Add(sleepSpan);
-                }
-
-                sessions.Add(session);
-            }
-
-            return sessions.ToArray();
-        }
-
-        static Guard[] ToGuards(Session[] sessions)
-        {
-            var guards = new Dictionary<int, Guard>();
-
-            foreach (var session in sessions)
-            {
-                if (!guards.ContainsKey(session.GuardId))
-                {
-                    guards[session.GuardId] = new Guard(session.GuardId);
-                }
-
-                guards[session.GuardId].Sessions.Add(session);
-            }
-
-            return guards.Values.ToArray();
-        }
-    }
-
-    class Guard
-    {
-        public Guard(int id)
-        {
-            this.Id = id;
-            this.Sessions = new List<Session>();
-        }
-
-        public int Id { get; }
-
-        public List<Session> Sessions { get; }
-    }
-
-    class Session
-    {
-        public Session(int guardId, DateTime date)
-        {
-            this.GuardId = guardId;
-            this.Date = date;
-            this.SleepSpans = new List<SleepSpan>();
-        }
-
-        public int GuardId { get; }
-
-        public DateTime Date { get; }
-
-        public List<SleepSpan> SleepSpans { get; }
-    }
-
-    class SleepSpan
-    {
-        public SleepSpan(DateTime start, DateTime stop)
-        {
-            this.Start = start;
-            this.Stop = stop;
-        }
-
-        public DateTime Start { get; }
-
-        public DateTime Stop { get; }
     }
 }

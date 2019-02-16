@@ -24,18 +24,18 @@
                 throw new ArgumentException("Invalid event format!");
             }
 
-            string timePart = str.Substring(0, splitIndex)
+            string dateTimePart = str.Substring(0, splitIndex)
                 .Trim();
             string typePart = str.Substring(splitIndex)
                 .Trim();
 
-            DateTime time = ParseTime(timePart);
+            DateTime time = ParseDateTime(dateTimePart);
             EventType type = ParseType(typePart, out int guardId);
 
             return new Event(time, type, guardId);
         }
 
-        private static DateTime ParseTime(string str)
+        private static DateTime ParseDateTime(string str)
         {
             Match match = DateTimePattern.Match(str);
             if (!match.Success)
@@ -86,14 +86,14 @@
             return EventType.Start;
         }
 
-        public Event(DateTime time, EventType type, int guardId)
+        public Event(DateTime dateTime, EventType type, int guardId)
         {
-            this.Time = time;
+            this.DateTime = dateTime;
             this.Type = type;
             this.GuardId = guardId;
         }
 
-        public DateTime Time { get; }
+        public DateTime DateTime { get; }
 
         public EventType Type { get; }
 
@@ -101,7 +101,7 @@
 
         public override string ToString()
         {
-            return $"Time: {this.Time} | Type: {this.Type} | Gurd: {this.GuardId}";
+            return $"Date Time: {this.DateTime} | Type: {this.Type} | Gurd: {this.GuardId}";
         }
     }
 }
