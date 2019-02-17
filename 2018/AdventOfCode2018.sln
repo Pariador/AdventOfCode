@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.NoMatterHowYouSliceIt", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.ReposeRecord", "04.ReposeRecord\04.ReposeRecord.csproj", "{8CD7E711-8243-4CCD-AD3C-38214AAFD303}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.AlchemicalReduction", "05.AlchemicalReduction\05.AlchemicalReduction.csproj", "{67732716-9484-40D9-9251-19AF2171960C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8CD7E711-8243-4CCD-AD3C-38214AAFD303}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CD7E711-8243-4CCD-AD3C-38214AAFD303}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CD7E711-8243-4CCD-AD3C-38214AAFD303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67732716-9484-40D9-9251-19AF2171960C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67732716-9484-40D9-9251-19AF2171960C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67732716-9484-40D9-9251-19AF2171960C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67732716-9484-40D9-9251-19AF2171960C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
