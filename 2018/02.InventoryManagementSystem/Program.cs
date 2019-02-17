@@ -9,7 +9,7 @@
     {
         static void Main()
         {
-            string[] ids = ReadIds();
+            string[] ids = File.ReadAllLines("input.txt");
             var counts = ids.Select(id => CountChars(id));
 
             var idsWithOneRepetition = counts.Count(count => count.Values.Contains(2));
@@ -22,27 +22,6 @@
             string root = FindRoot(ids);
 
             Console.WriteLine($"Root: {root}");
-        }
-
-        static string[] ReadIds()
-        {
-            var ids = new List<string>();
-
-            using (var reader = new StreamReader("input.txt"))
-            {
-                while (true)
-                {
-                    string line = reader.ReadLine();
-                    if (line == null)
-                    {
-                        break;
-                    }
-
-                    ids.Add(line);
-                }
-            }
-
-            return ids.ToArray();
         }
 
         static Dictionary<char, int> CountChars(string str)

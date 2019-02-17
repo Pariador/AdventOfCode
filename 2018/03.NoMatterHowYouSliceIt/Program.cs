@@ -12,7 +12,9 @@
 
         static void Main()
         {
-            var claims = ReadClaims();
+            var claims = File.ReadAllLines("input.txt")
+                .Select(Claim.Parse)
+                .ToArray();
 
             int best = FindBestClaim(claims, out short[,] fabric);
             int overlapsCount = CountOverlaps(fabric);
@@ -20,27 +22,6 @@
             Console.WriteLine($"Squere inches overlap: {overlapsCount}");
             Console.WriteLine($"Best claim: {best}");
 
-        }
-
-        static Claim[] ReadClaims()
-        {
-            var rectangles = new List<Claim>();
-
-            using (var reader = new StreamReader("input.txt"))
-            {
-                while (true)
-                {
-                    string line = reader.ReadLine();
-                    if (line == null)
-                    {
-                        break;
-                    }
-
-                    rectangles.Add(Claim.Parse(line));
-                }
-            }
-
-            return rectangles.ToArray();
         }
 
         static int FindBestClaim(Claim[] claims, out short[,] fabric)

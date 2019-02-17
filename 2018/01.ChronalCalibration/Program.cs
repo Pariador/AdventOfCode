@@ -1,40 +1,22 @@
 ﻿namespace ChronalCalibration
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
+    using System.Collections.Generic;
 
     static class Program
     {
         static void Main()
         {
-            int[] numbers = ReadNumbers();
+            int[] numbers = File.ReadAllLines("input.txt")
+                .Select(int.Parse)
+                .ToArray();
             int sum = Sum(numbers);
             int firstRepeatingSum = FindFirstRepeatingSum(numbers);
 
             Console.WriteLine($"Sum: {sum}");
             Console.WriteLine($"First Repeating Sum: {firstRepeatingSum}");
-        }
-
-        static int[] ReadNumbers()
-        {
-            var numbers = new List<int>();
-
-            using (var reader = new StreamReader("input.txt"))
-            {
-                while (true)
-                {
-                    string line = reader.ReadLine();
-                    if (line == null)
-                    {
-                        break;
-                    }
-
-                    numbers.Add(int.Parse(line));
-                }
-            }
-
-            return numbers.ToArray();
         }
 
         static int Sum(int[] numbers)
