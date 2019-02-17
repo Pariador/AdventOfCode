@@ -9,53 +9,73 @@
     {
         static void Main()
         {
-            char[] polymer = File.ReadAllText("input.txt")
-                .Trim()
-                .ToCharArray();
+            string text = File.ReadAllText("input.txt").Trim();
+            var polymer = new LinkedList<char>(text);
 
-            int fullyReactedPolymerLength = FullyReact(polymer).Length;
+            int fullyReactedPolymerLength = FullyReact(polymer).Count;
             Console.WriteLine($"Polymer Length: {fullyReactedPolymerLength}");
-
 
             Console.WriteLine("\nFinding shortest polymer...");
             int shortestPolymer = FindShortestPolymer(polymer);
             Console.WriteLine($"Shortest Polymer: {shortestPolymer}");
         }
 
-        static char[] Trigger(char[] polymer, out bool triggered)
+        static bool Trigger(LinkedList<char> polymer)
         {
-            const char Destroyed = '*';
+            bool triggered = false;
 
-            triggered = false;
-
-            for (int i = 0; i < polymer.Length - 1; i++)
+            var node = polymer.First;
+            while (node != null && node.Next != null)
             {
-                if ((char.ToLower(polymer[i]) == char.ToLower(polymer[i + 1])) &&
-                    (polymer[i] != polymer[i + 1])) 
+                if ((char.ToLower(node.Value) == char.ToLower(node.Next.Value)) &&
+                    (node.Value != node.Next.Value))
                 {
                     triggered = true;
-                    polymer[i] = Destroyed;
-                    polymer[i + 1] = Destroyed;
-                    i++;
+
+                    var delete = new LinkedListNode<char>[] { node, node.Next };
+
+                    node = node.Next.Next;
+
+                    polymer.Remove(delete[0]);
+                    polymer.Remove(delete[1]);
+                }
+                else
+                {
+                    node = node.Next;
                 }
             }
 
-            return polymer.Where(unit => unit != Destroyed)
-                .ToArray();
+            return triggered;
         }
 
-        static char[] FullyReact(char[] polymer)
+        static LinkedList<char> FullyReact(LinkedList<char> polymer)
         {
-            bool triggered = false;
-            do
-            {
-                polymer = Trigger(polymer, out triggered);
-            } while (triggered);
+            while (Trigger(polymer));
 
             return polymer;
         }
 
-        static int FindShortestPolymer(char[] polymer)
+        static LinkedList<char> Unblock(LinkedList<char> polymer, char type)
+        {
+            var node = polymer.First;
+            while (node != null)
+            {
+                if (char.ToLower(node.Value) == char.ToLower(type))
+                {
+                    var delete = node;
+                    node = node.Next;
+                    polymer.Remove(delete);
+                }
+                else
+                {
+                    node = node.Next;
+                }
+            }
+
+            return polymer;
+        }
+
+        static int FindShortestPolymer(LinkedList<char> polymer)
         {
             polymer = FullyReact(polymer);
 
@@ -65,12 +85,11 @@
                 alphabet[i] = (char)(i + 65);
             }
 
-            return alphabet.Select(letter =>
+            return alphabet.Select(type =>
             {
-                var unblocked = polymer.Where(unit => char.ToUpper(unit) != letter)
-                    .ToArray();
+                var unblocked = Unblock(new LinkedList<char>(polymer), type);
 
-                return FullyReact(unblocked).Length;
+                return FullyReact(unblocked).Count;
             }).Min();
         }
     }
