@@ -1,4 +1,6 @@
-﻿Step C must be finished before step P can begin.
+﻿workers = 5
+base_time = 60
+Step C must be finished before step P can begin.
 Step V must be finished before step Q can begin.
 Step T must be finished before step X can begin.
 Step B must be finished before step U can begin.
