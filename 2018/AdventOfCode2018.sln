@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.AlchemicalReduction", "0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.ChronalCoordinates", "06.ChronalCoordinates\06.ChronalCoordinates.csproj", "{F67D86B0-7282-42B7-A7D0-64B4B58EB35B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.TheSumOfItsParts", "07.TheSumOfItsParts\07.TheSumOfItsParts.csproj", "{67B4261C-2DBE-4564-ADC2-A96F68EDBA5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{F67D86B0-7282-42B7-A7D0-64B4B58EB35B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F67D86B0-7282-42B7-A7D0-64B4B58EB35B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F67D86B0-7282-42B7-A7D0-64B4B58EB35B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B4261C-2DBE-4564-ADC2-A96F68EDBA5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B4261C-2DBE-4564-ADC2-A96F68EDBA5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B4261C-2DBE-4564-ADC2-A96F68EDBA5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B4261C-2DBE-4564-ADC2-A96F68EDBA5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
