@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.ChronalCoordinates", "06
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.TheSumOfItsParts", "07.TheSumOfItsParts\07.TheSumOfItsParts.csproj", "{67B4261C-2DBE-4564-ADC2-A96F68EDBA5D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.MemoryManeuver", "08.MemoryManeuver\08.MemoryManeuver.csproj", "{E3DFEEB1-2995-4752-8345-68AF6A7B782A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{67B4261C-2DBE-4564-ADC2-A96F68EDBA5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67B4261C-2DBE-4564-ADC2-A96F68EDBA5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67B4261C-2DBE-4564-ADC2-A96F68EDBA5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3DFEEB1-2995-4752-8345-68AF6A7B782A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3DFEEB1-2995-4752-8345-68AF6A7B782A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3DFEEB1-2995-4752-8345-68AF6A7B782A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3DFEEB1-2995-4752-8345-68AF6A7B782A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
