@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Intcode", "02.Intcode\02
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.CrossedWires", "03.CrossedWires\03.CrossedWires.csproj", "{DD4E80C1-9B90-4A04-BD35-DA631D873355}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.SecureContainer", "04.SecureContainer\04.SecureContainer.csproj", "{008384D6-8E96-49D5-A5AF-252695E3D349}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DD4E80C1-9B90-4A04-BD35-DA631D873355}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD4E80C1-9B90-4A04-BD35-DA631D873355}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD4E80C1-9B90-4A04-BD35-DA631D873355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{008384D6-8E96-49D5-A5AF-252695E3D349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{008384D6-8E96-49D5-A5AF-252695E3D349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{008384D6-8E96-49D5-A5AF-252695E3D349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{008384D6-8E96-49D5-A5AF-252695E3D349}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
