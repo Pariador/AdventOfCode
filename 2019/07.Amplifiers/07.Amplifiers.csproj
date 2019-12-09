@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DFAF8C19-369F-4104-9F2A-BC7F06BE44BD}</ProjectGuid>
+    <ProjectGuid>{45AD7C07-46D0-4C5D-8BF9-B8AB5126B5A5}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Intcode</RootNamespace>
-    <AssemblyName>Intcode2</AssemblyName>
+    <RootNamespace>Amplifiers</RootNamespace>
+    <AssemblyName>Amplifiers</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IntCompPlus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,9 +54,13 @@
       <Project>{39abc846-5e81-4109-89e7-9a8231cd2a77}</Project>
       <Name>02.Intcode</Name>
     </ProjectReference>
+    <ProjectReference Include="..\05.Intcode2\05.Intcode2.csproj">
+      <Project>{dfaf8c19-369f-4104-9f2a-bc7f06be44bd}</Project>
+      <Name>05.Intcode2</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="test-program.txt">
+    <Content Include="amplifier.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

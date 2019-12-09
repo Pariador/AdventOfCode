@@ -4,15 +4,23 @@
     using System.Linq;
     using System.Collections.Generic;
 
+    public enum ExitCode
+    {
+        Halt = 99,
+        OutOfBounds = -1,
+        Waiting = 0
+    }
+
     public class IntComp
     {
-        protected const int HaltCode = 99;
+        public const int HaltCode = 99;
+        public const int OutOfBoundsCode = -1;
 
         private Dictionary<int, Definition> definitions;
 
         public IntComp()
         {
-            this.ExitCode = -1;
+            this.Reset();
 
             this.definitions = this.DefineOperations()
                 .ToDictionary(op => op.Code, op => op);
@@ -28,11 +36,15 @@
 
         protected int[] instance;
 
+        protected int current;
+
+        protected int count;
+
         public int[] Program
         {
             get
             {
-                return this.program;
+                return this.program.ToArray();
             }
 
             set
@@ -41,56 +53,71 @@
                     throw new ArgumentException("Program can't be null!");
 
                 this.program = value.ToArray();
+
+                this.Reload();
             }
         }
 
-        public int ExitCode { get; private set; }
-
-        private void Init(int skip = 0, params int[] initial)
+        public virtual void Reset()
         {
-            this.instance = this.program.ToArray();
-
-            for (int i = 0; i < initial.Length; i++)
-                this.instance[skip + i] = initial[i];
+            this.current = 0;
+            this.count = 0;
         }
 
-        public int Run(int skip = 0, params int[] initial)
+        public virtual void Load()
         {
-            this.Init(skip, initial);
+            this.instance = this.program.ToArray();
+        }
 
-            int current = 0;
-            int count = 1;
-            while (true)
+        public void Reload()
+        {
+            this.Reset();
+            this.Load();
+        }
+
+        public ExitCode Restart()
+        {
+            this.Reload();
+
+            return this.Start();
+        }
+
+        public ExitCode Start()
+        {
+            ExitCode? exit = null;
+
+            while (exit == null)
             {
-                if (this.instance.Length <= current)
-                {
-                    this.ExitCode = 1;
-                    break;
-                }
-                else if (this.instance[current] == HaltCode)
-                {
-                    this.ExitCode = 0;
-                    break;
-                }
-
-                var operation = Read(current);
+                var operation = Read(this.current);
                 this.Resolve(operation);
                 int? jump = operation.Execute();
 
                 if (jump == null)
-                    current += operation.Length;
+                    this.current += operation.Length;
                 else
-                    current = (int)jump;
+                    this.current = (int)jump;
 
-                count++;
+                this.count++;
+
+                exit = this.ShouldExit();
             }
 
-            return this.instance[0];
+            return (ExitCode)exit;
         }
 
         public int[] MemDump()
         {
             return this.instance.ToArray();
+        }
+
+        protected virtual ExitCode? ShouldExit()
+        {
+            if (this.current < 0 || this.instance.Length <= this.current)
+                return ExitCode.OutOfBounds;
+            else if (this.instance[this.current] == (int)ExitCode.Halt)
+                return ExitCode.Halt;
+
+            return null;
         }
 
         protected virtual List<Definition> DefineOperations()

@@ -1,28 +1,30 @@
 ﻿namespace Intcode
 {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
 
     public class IntCompPlus : IntComp
     {
-        private Func<int> input;
-        private Action<int> output;
+        private Queue<int> input;
+        private Queue<int> output;
 
-        public IntCompPlus(Func<int> input = null, Action<int> output = null)
+        private bool waiting;
+
+        public IntCompPlus(Queue<int> input = null, Queue<int> output = null)
             : base()
         {
-            this.Input = input ?? (() => 0);
-            this.Output = output ?? (x => { });
+            this.Input = input ?? new Queue<int>();
+            this.Output = output ?? new Queue<int>();
         }
 
-        public IntCompPlus(int[] program, Func<int> input = null, Action<int> output = null)
-            : base(program)
+        public IntCompPlus(int[] program, Queue<int> input = null, Queue<int> output = null)
+            : this(input, output)
         {
-            this.Input = input ?? (() => 0);
-            this.Output = output ?? (x => { });
+            this.Program = program;
         }
 
-        public Func<int> Input 
+        public Queue<int> Input 
         {
             get { return this.input; }
             set 
@@ -34,7 +36,7 @@
             }
         }
 
-        public Action<int> Output 
+        public Queue<int> Output 
         { 
             get { return this.output; }
             set
@@ -44,6 +46,22 @@
 
                 this.output = value;
             }
+        }
+
+        public override void Reset()
+        {
+            base.Reset();
+            this.waiting = false;
+        }
+
+        protected override ExitCode? ShouldExit()
+        {
+            var exit = base.ShouldExit();
+            if (exit != null) return exit;
+
+            if (this.waiting) return ExitCode.Waiting;
+
+            return null;
         }
 
         protected override void Resolve(Operation operation)
@@ -75,14 +93,21 @@
         {
             int target = (int)writeAddr;
 
-            this.instance[target] = this.Input();
+            if (!this.Input.Any())
+            {
+                this.waiting = true;
+                return this.current;
+            }
+
+            this.waiting = false;
+            this.instance[target] = this.Input.Dequeue();
 
             return null;
         }
 
         private int? OutputOperation(int[] parameters, int? writeAddr)
         {
-            this.Output(parameters[0]);
+            this.Output.Enqueue(parameters[0]);
 
             return null;
         }

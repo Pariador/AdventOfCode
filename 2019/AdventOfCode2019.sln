@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.Intcode2", "05.Intcode2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.Orbits", "06.Orbits\06.Orbits.csproj", "{3DBB1F67-F4D2-4F2A-AE03-737B4CBEA7F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.Amplifiers", "07.Amplifiers\07.Amplifiers.csproj", "{45AD7C07-46D0-4C5D-8BF9-B8AB5126B5A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{3DBB1F67-F4D2-4F2A-AE03-737B4CBEA7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DBB1F67-F4D2-4F2A-AE03-737B4CBEA7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DBB1F67-F4D2-4F2A-AE03-737B4CBEA7F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45AD7C07-46D0-4C5D-8BF9-B8AB5126B5A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45AD7C07-46D0-4C5D-8BF9-B8AB5126B5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45AD7C07-46D0-4C5D-8BF9-B8AB5126B5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45AD7C07-46D0-4C5D-8BF9-B8AB5126B5A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,26 +8,30 @@
     {
         static void Main()
         {
-            int[] program = File.ReadAllText("input.txt")
+            int[] program = File.ReadAllText("test-program.txt")
                 .Split(',')
                 .Select(int.Parse)
                 .ToArray();
 
             var comp = new IntCompPlus(program);
 
-            int[] inputs = { 1, 5 };
-            int i = 0;
+            Run(comp, 1);
+            Run(comp, 5);
+        }
 
-            comp.Input = () => 
-            {
-                Console.WriteLine($"---INPUT {inputs[i]}---");
-                return inputs[i++];
-            };
+        static void Run(IntCompPlus comp, int input)
+        {
+            Console.WriteLine($"---INPUT {input}---");
+            comp.Input.Enqueue(input);
 
-            comp.Output = Console.WriteLine;
+            var exit = comp.Restart();
+            if (exit != ExitCode.Halt)
+                Console.WriteLine("WARN: Computer did not halt!");
 
-            comp.Run();
-            comp.Run();
+            while (comp.Output.Any())
+                Console.WriteLine(comp.Output.Dequeue());
+
+            Console.WriteLine();
         }
     }
 }

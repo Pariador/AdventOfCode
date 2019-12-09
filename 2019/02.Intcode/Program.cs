@@ -15,12 +15,16 @@
                 .Select(int.Parse)
                 .ToArray();
 
+            int a = 12, b = 2;
+            SetInputs(program, a, b);
+
             var comp = new IntComp(program);
 
-            int a = 12, b = 2;
-            int output = comp.Run(1, a, b);
-            if (comp.ExitCode == 1)
-                Console.WriteLine("WARN: Program exited with code 1.");
+            var exit = comp.Start();
+            if (exit != ExitCode.Halt)
+                Console.WriteLine("WARN: Computer did not halt!");
+
+            int output = GetOutput(comp.MemDump());
 
             PrintResults(a, b, output);
 
@@ -39,18 +43,41 @@
 
         static (int, int)? FindInputs(IntComp comp, int target)
         {
+            var program = comp.Program;
+
             for (int a = 0; a < MaxInput; a++)
             {
                 for (int b = 0; b < MaxInput; b++)
                 {
-                    var output = comp.Run(1, a, b);
+                    SetInputs(program, a, b);
+                    comp.Program = program;
 
+                    var exit = comp.Start();
+
+                    int output = GetOutput(comp.MemDump());
                     if (output == target)
                         return (a, b);
                 }
             }
 
             return null;
+        }
+
+        static void SetInputs(int[] program, int a, int b)
+        {
+            if (program.Length < 3)
+                throw new ArgumentException("Program too short!");
+
+            program[1] = a;
+            program[2] = b;
+        }
+
+        static int GetOutput(int[] program)
+        {
+            if (program.Length == 0)
+                throw new ArgumentException("Program too short!");
+
+            return program[0];
         }
 
         static void PrintResults(int a, int b, int output)
